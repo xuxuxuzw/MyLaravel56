@@ -26,11 +26,13 @@ class WechatController extends Controller
     //网页授权获取openid
     public function oauth_callback()
     {
+        //获取app实例
+        /** @var \EasyWeChat\OfficialAccount\Application $app*/
         $app = app('wechat.official_account');
         $oauth = $app->oauth;
         // 获取 OAuth 授权结果用户信息
         $user = $oauth->user();
-        session(['openid' => $user->getId()]);
+        session(['openid' => $user->getId(),'nickname'=>$user->getNickname()]);
         header('location:' . $this->host_url());
     }
 
