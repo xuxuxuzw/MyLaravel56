@@ -16,7 +16,7 @@
         <!-- 内容 -->
         <div class="content" style="margin-top: 20%">
             <a href="/order/buy_ticket">购票</a><a href="/order/order_list">
-        个人中心 {{$openid}}</a>
+        {{$nickname}} -个人中心- {{$openid}}</a>
         </div>
         
     </body>

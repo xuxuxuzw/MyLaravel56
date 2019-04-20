@@ -20,11 +20,11 @@ class IndexController extends Controller
         $oauth = $app->oauth;
 
         //如果没有openid则调起网页授权
-        if (empty(session('openid'))) {
+        if (empty(session('nickname')) || empty(session('openid'))) {
             session(['target_url' => '/']);
             return $oauth->redirect();
         } else {
-            return view('home.index.index', ['openid' => session('openid')]);
+            return view('home.index.index', ['openid' => session('openid'),'nickname'=>session('nickname')]);
         }
     }
 

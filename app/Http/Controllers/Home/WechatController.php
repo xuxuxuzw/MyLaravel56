@@ -32,7 +32,7 @@ class WechatController extends Controller
         $oauth = $app->oauth;
         // 获取 OAuth 授权结果用户信息
         $user = $oauth->user();
-        session(['openid' => $user->getId()]);
+        session(['openid' => $user->getId(),'nickname'=>$user->getNickname()]);
         header('location:' . $this->host_url());
     }
 
