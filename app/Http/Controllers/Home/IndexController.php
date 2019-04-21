@@ -32,7 +32,20 @@ class IndexController extends Controller
          */
     public function menu()
     {
-        return view('home.index.menu');
+        $wechat_img="/assets/images/weichat.jpg";
+        $wechat_name="测试公众号";
+        return view('home.index.menu',['wechat_img'=>$wechat_img,'wechat_name'=>$wechat_name]);
+    }
+    /* 获取当前微信公众号菜单设置
+         * @return page
+         */
+    public function getMenu()
+    {
+        //获取配置信息
+        /** @var \EasyWeChat\OfficialAccount\Application $app */
+        $app = app('wechat.official_account');
+        $list = $app->menu->list();
+        return $list;
     }
 
     /* 微信公众号菜单设置保存

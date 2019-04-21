@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,8 +24,9 @@
             <div class="inner-left">
                 <div class="custom-menu-view-con">
                     <div class="custom-menu-view">
-                        <div class="custom-menu-view__title">公众号名称</div>
+                        <div class="custom-menu-view__title">公众号名称:{{$wechat_name}}</div>
                         <div class="custom-menu-view__body">
+                            <img src="{{$wechat_img}}" style="float:left;" width="100" height="100" alt="微信公众号">
                             <div class="weixin-msg-list"><ul class="msg-con"></ul></div>
                         </div>
                         <div id="menuMain" class="custom-menu-view__footer">

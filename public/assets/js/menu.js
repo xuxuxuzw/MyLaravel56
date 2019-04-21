@@ -1,4 +1,4 @@
-;$(function(){ 
+$(function(){
 	var mId=null;
 	//显示自定义按钮组
 	var obj={
@@ -28,10 +28,70 @@
 			                    "key":"MUSIC"
 			                }
 			            ]
-			        }
+			        },
+					{
+						"name":"🍀基本类型",
+						"sub_button":[
+							{
+								"type":"click",
+								"name":"🐹文本和表情",
+								"key":"TEXT"
+							},
+							{
+								"type":"click",
+								"name":"📰单图文",
+								"key":"SINGLENEWS"
+							},
+							{
+								"type":"click",
+								"name":"🐠多图文",
+								"key":"MULTINEWS"
+							},
+							{
+								"type":"click",
+								"name":"🎵音乐",
+								"key":"MUSIC"
+							}
+						]
+					},
+					{
+						"name":"🍀基本类型",
+						"sub_button":[
+							{
+								"type":"click",
+								"name":"🐹文本和表情",
+								"key":"TEXT"
+							},
+							{
+								"type":"click",
+								"name":"📰单图文",
+								"key":"SINGLENEWS"
+							},
+							{
+								"type":"click",
+								"name":"🐠多图文",
+								"key":"MULTINEWS"
+							},
+							{
+								"type":"click",
+								"name":"🎵音乐",
+								"key":"MUSIC"
+							}
+						]
+					}
 			    ]
 		    }
 		};
+	$.ajax({
+		type: "POST",
+		url: "menu/getMenu",
+		async: false,
+		dataType : "json",
+		success : function(menu) {
+			obj=menu;
+			console.log(obj)
+		}
+	});
 	var tempObj={};//存储HTML对象
 	var button=obj.menu.button;//一级菜单
 	//显示异常
@@ -155,7 +215,9 @@
 				break;
 			}
 		}
-		customBtns.append(menuDiv);
+		if(num<3){
+			customBtns.append(menuDiv);
+		}
 	}
 	//初始化菜单按钮
 	function addMenu(){
