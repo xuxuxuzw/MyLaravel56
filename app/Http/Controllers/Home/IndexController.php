@@ -18,7 +18,6 @@ class IndexController extends Controller
         //获取配置信息
         $app = app('wechat.official_account');
         $oauth = $app->oauth;
-
         //如果没有openid则调起网页授权
         if (empty(session('nickname')) || empty(session('openid'))) {
             session(['target_url' => '/']);
